@@ -1,0 +1,17 @@
+<h1>Choose size and click generate!</h1>
+<button type="button" class="btn btn-primary" (click)='setValues(100)'>100</button>
+<button type="button" class="btn btn-secondary" (click)='setValues(250)'>250</button>
+<button type="button" class="btn btn-success" (click)='setValues(400)'>400</button>
+<button class="btn1" (click)="generateColor()">Generate</button>
+<button class="btn1" (click)="reset()">Reset</button>
+<div *ngIf="colors.length > 0" class="select-color">
+    <p>Change the color</p>
+    <input type="color" [(ngModel)]='currentColor' />
+</div>
+<div class="container">
+    <div *ngFor="let box of colors" class="color-box" (click)="changeColor(box)" [ngStyle]="{
+       width: boxSize + 'px',
+      'background-color': box.color
+    }">
+    </div>
+</div>
